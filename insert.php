@@ -19,6 +19,7 @@
         echo "koneksi berhasil";
     }
 
+    $query = "SELECT * FROM mahasiswa where id=3";
 
     //  buat sql query untuk insert ke database
     // buat query insert dan jalankan
@@ -29,7 +30,7 @@
     if (mysqli_query($con, $sql)){
         echo "Data berhasil ditambah";
     }else{
-        echo "Ada error ". mysqli_error();
+        echo "Ada error ". mysqli_error($con);
     }
 
     mysqli_close($con);
@@ -47,7 +48,7 @@
     <title>Tambah Data Mahasiswa</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="insert.php" method="post">
         NIM: <input type="text" name="nim"><br>
         Nama: <input type="text" name="nama"><br>
         Id Jurusan: <input type="number" name="id_jurusan"><br>
